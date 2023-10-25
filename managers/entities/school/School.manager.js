@@ -23,7 +23,6 @@ module.exports = class SchoolManager {
   }
 
   async createSchool({ name, __superAdminCheck }) {
-    console.log("here");
     try {
       const school = new this.SchoolModel({
         name,
@@ -31,7 +30,6 @@ module.exports = class SchoolManager {
       const savedSchool = await school.save();
       return savedSchool;
     } catch (err) {
-      console.log(err);
       return { error: err };
     }
   }

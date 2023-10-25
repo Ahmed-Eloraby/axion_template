@@ -73,7 +73,6 @@ module.exports = class ClassroomManager {
 
   async getClassroomSchool({ classroomId }) {
     const classroom = await this.ClassroomModel.findById(classroomId);
-    console.log(classroomId);
     if (!classroom) throw "Invalid Classroom";
     return classroom.school;
   }

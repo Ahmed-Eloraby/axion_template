@@ -93,7 +93,6 @@ module.exports = class StudentManager {
   async getStudentSchool({ studentId }) {
     const student = await this.StudentModel.findById(studentId);
     const studentClassroom = student.classroom;
-    console.log(studentClassroom);
     if (!student) {
       return { error: "Student not found" };
     }

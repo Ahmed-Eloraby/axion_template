@@ -23,7 +23,6 @@ module.exports = class User {
     try {
       const hashedPassword = await this.utils.hash(password);
       const role = "superadmin";
-      console.log(hashedPassword);
       const superAdmin = new this.UserModel({
         username: username,
         password: hashedPassword,
@@ -59,7 +58,6 @@ module.exports = class User {
       if (!admin) throw new Error("Invalid Credentials");
       if (!(await this.utils.verifyHash(password, admin.password)))
         throw new Error("Invalid Credentials");
-      console.log(admin);
       const token = this.tokenManager.genLongToken({
         userId: admin._id,
         userKey: {
@@ -69,7 +67,6 @@ module.exports = class User {
       });
       return token;
     } catch (err) {
-      console.log(err);
       return { error: err };
     }
   }

@@ -145,7 +145,7 @@ module.exports = class ApiHandler {
       });
     }
 
-    console.log(`${moduleName}.${fnName}`);
+    // console.log(`${moduleName}.${fnName}`);
 
     let targetStack = this.mwsStack[`${moduleName}.${fnName}`];
 

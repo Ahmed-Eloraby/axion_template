@@ -10,7 +10,6 @@ module.exports = ({ meta, config, managers }) => {
     }
     let decoded = null;
     try {
-      console.log(req.headers.token);
       decoded = managers.token.verifyLongToken({ token: req.headers.token });
       if (!decoded) {
         console.log("failed to decode-1");
