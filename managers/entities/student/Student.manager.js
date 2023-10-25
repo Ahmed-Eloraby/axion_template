@@ -20,7 +20,7 @@ module.exports = class StudentManager {
       "put=updateStudent",
       "delete=deleteStudent",
       "get=getAllStudents",
-      "get=getSchoolStudents  ",
+      "get=getSchoolStudents",
     ];
   }
   async getAllStudents({ __superAdminCheck }) {

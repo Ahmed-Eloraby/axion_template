@@ -8,8 +8,8 @@ const classroomSchema = new mongoose.Schema({
   school: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "School",
+    required: true,
   },
-  required: true,
 });
 
 module.exports = mongoose.model("Classroom", classroomSchema);
