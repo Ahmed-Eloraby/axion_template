@@ -1,5 +1,3 @@
-const { verifyHash } = require("../../../libs/utils");
-
 module.exports = class User {
   constructor({
     utils,

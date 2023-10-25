@@ -19,7 +19,32 @@ module.exports = class StudentManager {
       "createStudent",
       "put=updateStudent",
       "delete=deleteStudent",
+      "get=getAllStudents",
+      "get=getSchoolStudents  ",
     ];
+  }
+  async getAllStudents({ __superAdminCheck }) {
+    try {
+      const students = await this.StudentModel.findAll();
+      return students;
+    } catch (error) {
+      return { error: err };
+    }
+  }
+
+  async getSchoolStudents({ schoolId, __schoolAdminCheck }) {
+    try {
+      const query = await this.StudentModel.find({})
+        .populate({
+          path: "classroom",
+          match: { school: schoolId },
+          populate: { path: "school" },
+        })
+        .exec();
+      return students;
+    } catch (error) {
+      return { error: err };
+    }
   }
 
   async createStudent({ name, age, classroomId, gender, __schoolAdminCheck }) {
